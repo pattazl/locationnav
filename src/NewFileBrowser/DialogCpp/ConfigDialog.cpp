@@ -109,7 +109,7 @@ void ConfigDialog::ReadConfigFile( LangType langtype,int fileTypeId)
 	::SendMessage(nppData._nppHandle, NPPM_SETCURRENTLANGTYPE , 0, (LPARAM)langtype);
 }
 
-BOOL CALLBACK ConfigDialog::run_dlgProc(HWND hWnd, UINT Message, WPARAM wParam, LPARAM lParam)
+INT_PTR CALLBACK ConfigDialog::run_dlgProc(UINT Message, WPARAM wParam, LPARAM lParam)
 {
 	switch (Message) 
 	{

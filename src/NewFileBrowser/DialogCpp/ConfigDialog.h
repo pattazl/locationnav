@@ -21,7 +21,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #ifndef CONFIG_DEFINE_H
 #define CONFIG_DEFINE_H
 
-#include "StaticDialog2.h"
+#include "StaticDialog.h"
 #include "resource.h"
 #include "PluginDefinition.h"
 
@@ -34,11 +34,11 @@ extern TCHAR TemplateFilePath[MAX_PATH];
 
 extern NppData nppData;
 
-class ConfigDialog : public StaticDialog2
+class ConfigDialog : public StaticDialog
 {
 
 public:
-	ConfigDialog() : StaticDialog2() {};
+	ConfigDialog() : StaticDialog() {};
     
     void init(HINSTANCE hInst, NppData nppData)
 	{
@@ -49,7 +49,7 @@ public:
    	void doDialog();
 
     virtual void destroy() {
-		StaticDialog2::destroy();
+		StaticDialog::destroy();
 		_hSelf = NULL;
     };
 	FileInfo tempNewFileType[TemplateMaxCount];
@@ -60,7 +60,7 @@ public:
 	void SaveConfig2Arr();
 
 protected :
-	virtual BOOL CALLBACK run_dlgProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+	virtual INT_PTR CALLBACK run_dlgProc(UINT message, WPARAM wParam, LPARAM lParam);
 
 private:
 	/* Handles */

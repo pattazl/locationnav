@@ -239,7 +239,7 @@ void commandMenuInit()
 	for(int i=0;i<TemplateCount;i++)
 	{
 		// д╛хонд╪Ч
-		int L_Default = L_TXT;
+		int L_Default = L_TEXT;
 		switch(i){
 			case 0:
 				L_Default = L_HTML;
@@ -343,7 +343,7 @@ void CreateNewFile(int flag)
 	}
 	//TCHAR fileContent[TemplateMaxSize];
 	//ifstream myFile;
-	int toSetLangType = L_TXT;
+	int toSetLangType = L_TEXT;
 	if ( flag < 0 || flag > TemplateMaxCount)
 	{
 		::MessageBox(nppData._nppHandle,TEXT("NewFile Flag Overflow!"),TEXT(""),MB_OK);

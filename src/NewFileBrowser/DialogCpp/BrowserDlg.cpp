@@ -24,7 +24,7 @@
 #include "BrowserDlg.h"
 #include "PluginDefinition.h"
 CComModule _Module;
-#pragma comment(lib,"atl")
+//#pragma comment(lib,"atls")
 #pragma comment(lib,"User32.lib")
 
 extern NppData nppData;
@@ -60,7 +60,7 @@ void CBrowserDlg::GotoURL()
 	VariantClear(&varMyURL);
 	WinContainer.SetFocus();
 }
-BOOL CALLBACK CBrowserDlg::run_dlgProc(UINT message, WPARAM wParam, LPARAM lParam)
+INT_PTR CALLBACK CBrowserDlg::run_dlgProc(UINT message, WPARAM wParam, LPARAM lParam)
 {
 	switch (message) 
 	{
@@ -126,5 +126,6 @@ BOOL CALLBACK CBrowserDlg::run_dlgProc(UINT message, WPARAM wParam, LPARAM lPara
 		default :
 			return DockingDlgInterface::run_dlgProc(message, wParam, lParam);
 	}
+	return FALSE;
 }
 

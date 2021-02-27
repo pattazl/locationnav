@@ -19,7 +19,6 @@
 #define DOCKING_RESOURCE_H
 
 #define IDD_PLUGIN_DLG                  103
-#define IDC_EDIT1                       1000
 
 
 #define IDB_CLOSE_DOWN                  137
