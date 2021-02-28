@@ -280,6 +280,7 @@ BOOL CALLBACK LocationNavigateDlg::run_dlgProc(UINT message, WPARAM wParam, LPAR
 		case WM_SIZE:
 		case WM_MOVE:
 			{
+				// 调整布局位置
 				RECT rc;
 				getClientRect(rc);
 
@@ -293,19 +294,18 @@ BOOL CALLBACK LocationNavigateDlg::run_dlgProc(UINT message, WPARAM wParam, LPAR
 
 				::MoveWindow(_hUG_OK, rc.left+10, rc.bottom-65, 40,18, TRUE);
 				::MoveWindow(_hMark, rc.left+10, rc.bottom-45, 40,18, TRUE);
-
 				
-				::MoveWindow(_hABOUT, rc.left+185, rc.bottom-65, 400,36, TRUE);
-				::MoveWindow(_hClear, rc.left+180, rc.bottom-38, 40,14, TRUE);
+				::MoveWindow(_hABOUT, rc.left+185, rc.bottom-70, 400,40, TRUE);
+				::MoveWindow(_hClear, rc.left+180, rc.bottom-38, 55,16, TRUE);
 
-				::MoveWindow(_hColor,  rc.left+225, rc.bottom-38, 60,16, TRUE);
-				::MoveWindow(_hSaveColor,  rc.left+285, rc.bottom-38, 60,16, TRUE);
-				::MoveWindow( _hAuto ,  rc.left+350, rc.bottom-38, 130,16, TRUE);
+				::MoveWindow(_hColor,  rc.left+245, rc.bottom-38, 70,16, TRUE);
+				::MoveWindow(_hSaveColor,  rc.left+315, rc.bottom-38, 70,16, TRUE);
+				::MoveWindow( _hAuto ,  rc.left+390, rc.bottom-38, 150,16, TRUE);
 
-				::MoveWindow(_hInCurr, rc.left+10, rc.bottom-22, 40,18, TRUE);
-				::MoveWindow(_hSaveRecord, rc.left+60, rc.bottom-22, 150,18, TRUE);
-				::MoveWindow( _hBookmark,  rc.left+220, rc.bottom-22, 120,16, TRUE);
-				::MoveWindow(_hAlways,  rc.left+350, rc.bottom-22, 90,16, TRUE);
+				::MoveWindow(_hInCurr, rc.left+10, rc.bottom-22, 50,16, TRUE);
+				::MoveWindow(_hSaveRecord, rc.left+60, rc.bottom-22, 180,16, TRUE);
+				::MoveWindow( _hBookmark,  rc.left+250, rc.bottom-22, 120,16, TRUE);
+				::MoveWindow(_hAlways,  rc.left+390, rc.bottom-22, 110,16, TRUE);
 
 				redraw();
 			}

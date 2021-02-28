@@ -205,7 +205,6 @@ void commandMenuInit()
 
 	if ( GetFileAttributes(Template1FilePath)==0xFFFFFFFF )
 	{
-		// HTML L"D:\\ProgramFiles\\±à¼­¹¤¾ß\\npp.5.9.6.bin\\ansi\\plugins\\Config\\111111.dat"
 		ofstream myFile; 
 		FSConvert( myFile.open(Template1FilePath) );
 		USES_CONVERSION;

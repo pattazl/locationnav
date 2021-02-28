@@ -107,7 +107,7 @@ void SelfCtrl::create(HWND itemHandle,long MarkIndex, long color)
 	// set the visited colour
 
 	// subclass the static control
-    _oldproc = (WNDPROC)::SetWindowLongPtr(itemHandle, GWLP_USERDATA, (LONG_PTR)SelfCtrlProc);
+    _oldproc = (WNDPROC)::SetWindowLongPtr(itemHandle, GWLP_WNDPROC, (LONG_PTR)SelfCtrlProc);
 
 	// associate the URL structure with the static control
     ::SetWindowLongPtr(itemHandle, GWLP_USERDATA, (LONG_PTR)this);

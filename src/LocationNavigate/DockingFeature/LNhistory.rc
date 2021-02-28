@@ -1,25 +1,18 @@
 // Microsoft Visual C++ generated resource script.
 //
 #include "resource.h"
-
+#include "winres.h"
 #define APSTUDIO_READONLY_SYMBOLS
-/////////////////////////////////////////////////////////////////////////////
-//
-// Generated from the TEXTINCLUDE 2 resource.
-//
-#include <windows.h>
 
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// 中文(中华人民共和国) resources
+// 中文(简体，中国) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
-#ifdef _WIN32
 LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
 #pragma code_page(936)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -30,7 +23,7 @@ IDD_LOCATIONNAVIGATE DIALOGEX 26, 41, 369, 264
 STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_TOOLWINDOW | WS_EX_WINDOWEDGE
 CAPTION "Location History"
-FONT 8, "MS Sans Serif", 400, 0, 0x0
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
 BEGIN
     CONTROL         "Offset(2-5000)",ID_UGO_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,72,202,84,8
     EDITTEXT        ID_LNHISTORY_EDIT,154,199,30,12,ES_NUMBER
@@ -45,9 +38,9 @@ BEGIN
     CONTROL         "Save record when App exit",IDC_CHECK_SAVERECORD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,77,238,116,10
     CONTROL         "&In Curr",IDC_CHECK_INCURR,"Button",BS_AUTOCHECKBOX | BS_PUSHLIKE | BS_NOTIFY | WS_TABSTOP,1,243,44,10
     CONTROL         "&Mark",IDC_CHECK_MARK,"Button",BS_AUTOCHECKBOX | BS_PUSHLIKE | BS_NOTIFY | WS_TABSTOP,1,223,32,10
-    LTEXT           "Mark Color",ID_STATIC_COLOR,211,213,40,10
+    LTEXT           "Mark Color",ID_STATIC_COLOR,211,213,40,8
     COMBOBOX        IDC_CHECK_BOOKMARK,263,207,45,43,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Save Color",ID_STATIC_SAVECOLOR,221,223,40,10
+    LTEXT           "Save Color",ID_STATIC_SAVECOLOR,221,223,40,8
 END
 
 
@@ -64,13 +57,9 @@ END
 
 3 TEXTINCLUDE 
 BEGIN
-    "\r\n"
+    "\r\0"
 END
 
-2 TEXTINCLUDE 
-BEGIN
-    "#include ""afxres.h""\r\n"
-END
 
 #endif    // APSTUDIO_INVOKED
 
@@ -81,7 +70,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_LOCATIONNAVIGATE, DIALOG
     BEGIN
@@ -97,9 +86,13 @@ END
 //
 
 IDB_BITMAP1             BITMAP                  "previous16.bmp"
+
 IDB_BITMAP2             BITMAP                  "next16.bmp"
+
 IDB_BITMAP3             BITMAP                  "cprevious16.bmp"
+
 IDB_BITMAP4             BITMAP                  "cnext16.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -107,8 +100,8 @@ IDB_BITMAP4             BITMAP                  "cnext16.bmp"
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,4,7,7
- PRODUCTVERSION 0,4,7,7
+ FILEVERSION 0,4,7,8
+ PRODUCTVERSION 0,4,7,8
  FILEFLAGSMASK 0x17L
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -125,12 +118,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Pattazl, Lark Stuio"
             VALUE "FileDescription", "LocationNavigate for code/text view and edit"
-            VALUE "FileVersion", "0, 4, 7, 7"
+            VALUE "FileVersion", "0.4.7.8"
             VALUE "InternalName", "LocationNavigate"
-            VALUE "LegalCopyright", "Copyleft (C) 2011-2012"
+            VALUE "LegalCopyright", "Copyleft (C) 2011-2021"
             VALUE "OriginalFilename", "LocationNavigate"
             VALUE "ProductName", "LocationNavigate"
-            VALUE "ProductVersion", "0, 4, 7, 7"
+            VALUE "ProductVersion", "0.4.7.8"
         END
     END
     BLOCK "VarFileInfo"
@@ -148,7 +141,19 @@ END
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDI_ICON1               ICON                    "icon1.ico"
-#endif    // 中文(中华人民共和国) resources
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_LOCATIONNAVIGATE AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+#endif    // 中文(简体，中国) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
