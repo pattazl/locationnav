@@ -489,7 +489,7 @@ void SetConfig(){
 	dlgConfig.doDialog();
 };
 void AboutThis(){
-	::MessageBox(nppData._nppHandle,TEXT("You can use Ctrl+Shift+N or Ctrl+Shift+Alt+N to open a new file with default text which is defined yourself in template.\nIn template ^! means the default cursor position.\nIt has innner browser with IE kernel, use Ctrl+E to run current file in browser.\nCan auto show in browser when saved(HTML file)\nThe file's encode is defined by template\nCan define and name 20 templates for new files.\n\n Version: 0.1.3   Author: Austin Young<pattazl@gmail.com>"),TEXT("About"),MB_OK);
+	::MessageBox(nppData._nppHandle,TEXT("You can use Ctrl+Shift+N or Ctrl+Shift+Alt+N to open a new file with default text which is defined yourself in template.\nIn template ^! means the default cursor position.\nIt has innner browser with IE kernel, use Ctrl+E to run current file in browser.\nCan auto show in browser when saved(HTML file)\nThe file's encode is defined by template\nCan define and name 20 templates for new files.\n\n Version: 0.1.4   Author: Austin Young<pattazl@gmail.com>"),TEXT("About"),MB_OK);
 };
 
 void checkUpdate()

@@ -31,8 +31,8 @@ Global
 		{1590D7CD-7D3A-4AB7-A355-EE02F7FB987D}.Uni Debug|x64.Build.0 = Uni Debug|x64
 		{1590D7CD-7D3A-4AB7-A355-EE02F7FB987D}.Uni Realeas|Win32.ActiveCfg = Uni Realeas|Win32
 		{1590D7CD-7D3A-4AB7-A355-EE02F7FB987D}.Uni Realeas|Win32.Build.0 = Uni Realeas|Win32
-		{1590D7CD-7D3A-4AB7-A355-EE02F7FB987D}.Uni Realeas|x64.ActiveCfg = Uni Debug|x64
-		{1590D7CD-7D3A-4AB7-A355-EE02F7FB987D}.Uni Realeas|x64.Build.0 = Uni Debug|x64
+		{1590D7CD-7D3A-4AB7-A355-EE02F7FB987D}.Uni Realeas|x64.ActiveCfg = Uni Realeas|x64
+		{1590D7CD-7D3A-4AB7-A355-EE02F7FB987D}.Uni Realeas|x64.Build.0 = Uni Realeas|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
