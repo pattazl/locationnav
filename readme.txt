@@ -1,4 +1,16 @@
 NewFileBrowser is a plugin for Notepad++, and it can define 2 new file's text and have a inner webbrowser which could run current file
+v0.1.4
+support x64
+
+v0.1.3
+1. Can define and name 20 templates for new files.
+2. Fix the bug that create new HTML file and browse directly will be error.
+
+v0.1.2
+1. Add icon on toolbar
+2. Add function, auto show in browser when saved
+3. Add could define the new file's encode by template file
+
 v0.1.1
 1. Fix the bug when open more than one defined newfile
 2. Add docking dialog's icon
@@ -11,6 +23,23 @@ V0.1.0
 
 ------------------------------------------------------------------------
 LocationNavigate is a plugin for Notepad++ , and it is usefull for code/text edit and view, especially for many and large text files.
+V0.4.7.8
+support x64
+
+v0.4.7.7
+1. Add function, make it vertically centered when jump
+2. Fix the bug, recorded too may entries when kept pressed arrow down/up
+3. Fix the bug, filename in record will not be changed right now when save file.
+
+v0.4.7.6
+1. Fixed the bug that it will change the marker of file which before opened if open an exist file.
+
+v0.4.7.5
+1. Add AutoRecord, ManualRecord, ClearAllRecords functions in the menu, AutoRecord checked is default.
+
+V0.4.7.4
+1. Fix the bug, marker is not changed as expected in sometimes when file saved
+
 V0.4.7.3
 1. Improve method of making and showing marker, when other plugin auto-modify will skip(e.g. compare plugin)
 2. Enhance marker performance when multi-line paste and modify.
