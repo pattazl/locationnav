@@ -57,12 +57,12 @@ enum menuList
 };
 struct MarkData
 {
-	int position;
-	int line;
-	int lineAdd;
-	int BufferID ;
+	Sci_Position position;
+	Sci_Position line;
+	Sci_Position lineAdd;
+	Sci_Position BufferID ;
 	int markHandle;
-	int lineLen;
+	Sci_Position lineLen;
 };
 const int nbFunc = menuCount;
 // 270*300

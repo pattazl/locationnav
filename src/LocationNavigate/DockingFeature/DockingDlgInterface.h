@@ -24,12 +24,13 @@ Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 #include "dockingResource.h"
 #include "Docking.h"
 #include <shlwapi.h>
+#include "Sci_Position.h"
 //////////////////////////////////////////////////////////////////////////
 struct LocationInfo
 {
 	//long line;
 	//long col;
-	long position;// 文档中的位置
+	Sci_Position position;// 文档中的位置
 	long bufferID;// 文档编号
 	TCHAR FilePath[MAX_PATH];
 	bool changed; // 是否修改过
