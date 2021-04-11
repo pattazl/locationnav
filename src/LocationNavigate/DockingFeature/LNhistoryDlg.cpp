@@ -184,7 +184,7 @@ BOOL CALLBACK LocationNavigateDlg::run_dlgProc(UINT message, WPARAM wParam, LPAR
 					if ( ByBookMark != preByBookMark)
 					{
 						//需要改变主界面的样式
-						if( MarkBookmark!= ByBookMark)
+						//if( MarkBookmark!= ByBookMark)
 						{
 							InitBookmark();
 						}
@@ -263,6 +263,7 @@ BOOL CALLBACK LocationNavigateDlg::run_dlgProc(UINT message, WPARAM wParam, LPAR
 			::SendMessage( _hBookmark, CB_ADDSTRING ,0,(LPARAM)TEXT("Mark with triangle"));
 			::SendMessage( _hBookmark, CB_ADDSTRING ,0,(LPARAM)TEXT("Mark with arrow"));
 			::SendMessage( _hBookmark, CB_ADDSTRING ,0,(LPARAM)TEXT("Mark with bookmark"));
+			::SendMessage(_hBookmark, CB_ADDSTRING, 0, (LPARAM)TEXT("Mark with arrows"));
 
 			_hColor = GetDlgItem(_hSelf, ID_STATIC_COLOR);
 			_color.init(_hInst, _hSelf);

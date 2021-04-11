@@ -35,7 +35,8 @@ enum MarkType{
 	MarkTriangle,
 	MarkArrow ,
 	////////////////此处为列表的次序
-	MarkBookmark, // 此表示使用书签，定义的值不在 SC_MARK 中
+	MarkBookmark, // 改为书签标签，不用书签功能，此表示使用书签，定义的值不在 SC_MARK 中
+	MarkArrows,  // 新增的标签
 };
 const TCHAR sectionName[] = TEXT("Setting");
 const TCHAR strMaxOffset[] = TEXT("MaxOffset");
