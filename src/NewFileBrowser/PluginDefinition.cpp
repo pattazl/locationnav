@@ -90,7 +90,7 @@ ID_CountNum;
 
 typedef void (*NewFileFun)();
 
-
+HWND curScintilla;
 #define ID_LIST(IDName) IDName=ENUM_##IDName + TemplateCount;
 #define CreateNewFileFun(id) void CreateNewFile##id(){CreateNewFile(id);};
 //#define NewFileID(id) CreateNewFileFuns[id] = CreateNewFile##id
@@ -316,7 +316,15 @@ void commandMenuCleanUp()
 	}
 	delete funcItem[ID_ShowBrowser]._pShKey;
 }
-
+// 多线程控制数据
+DWORD WINAPI ClearInitFlag(LPVOID lpParam)
+{
+	char *chText = "";
+	::SendMessage(curScintilla, SCI_SETUNDOCOLLECTION, 0, 0); // 停止记录
+	::SendMessage(curScintilla, SCI_REPLACESEL, NULL, (LPARAM)chText); // 清除标记
+	::SendMessage(curScintilla, SCI_EMPTYUNDOBUFFER, 0, 0); // 清除历史操作记录(文本替换记录)
+	return 0;
+}
 //----------------------------------------------//
 //-- STEP 4. DEFINE YOUR ASSOCIATED FUNCTIONS --//
 //----------------------------------------------//
@@ -334,7 +342,7 @@ void CreateNewFile(int flag)
 	::SendMessage(nppData._nppHandle, NPPM_GETCURRENTSCINTILLA, 0, (LPARAM)&which);
 	if (which == -1)
 		return ;
-	HWND curScintilla = (which == 0)?nppData._scintillaMainHandle:nppData._scintillaSecondHandle;
+	curScintilla = (which == 0)?nppData._scintillaMainHandle:nppData._scintillaSecondHandle;
 	if ( curScintilla == (HWND)-1 )
 	{
 		::MessageBox(nppData._nppHandle,TEXT("Could not get handle !"),TEXT(""),MB_OK);
@@ -411,9 +419,9 @@ void CreateNewFile(int flag)
 	//wFile.write(buffer,sizeLen);//strlen(buffer)
 	//wFile.close();
 	::SendMessage(nppData._nppHandle, NPPM_DOOPEN, 0, (LPARAM)szTempfile );
-	::SendMessage(curScintilla, SCI_SETUNDOCOLLECTION, 0, 0 );
 	//::SendMessage(curScintilla, SCI_SETUNDOCOLLECTION, 0, 0 );
-	::SendMessage(curScintilla, SCI_EMPTYUNDOBUFFER, 0, 0 );
+	//::SendMessage(curScintilla, SCI_SETUNDOCOLLECTION, 0, 0 );
+	// ::SendMessage(curScintilla, SCI_EMPTYUNDOBUFFER, 0, 0 );
 	// 查找到 ^! 然后替换
 	int flags = SCFIND_MATCHCASE | SCFIND_WHOLEWORD;
 	//TextToFind ttf;
@@ -422,22 +430,22 @@ void CreateNewFile(int flag)
 	//ttf.lpstrText = "^!";
 	char *chText = "^!";
 	//int pos = ::SendMessage(curScintilla,SCI_FINDTEXT, flags, (LPARAM)&ttf);
-	::SendMessage(curScintilla, SCI_SETUNDOCOLLECTION, 1, 0 ); // 一定要设置，表明文本替换后已修改需要重新保存
+	//::SendMessage(curScintilla, SCI_SETUNDOCOLLECTION, 1, 0 ); // 一定要设置，表明文本替换后已修改需要重新保存
 	//::SendMessage(curScintilla, SCI_BEGINUNDOACTION ,0,0); 
 	int pos =::SendMessage(curScintilla,SCI_SEARCHNEXT, flags, (LPARAM)chText);
 	if (-1 != pos)
 	{
 		// 找到替换
 		char *chText = "";
-		::SendMessage(curScintilla,SCI_REPLACESEL, flags, (LPARAM)chText);
-		// 登记为已经修改
+		// 线程控制
+		HANDLE hThread = ::CreateThread(NULL, 0, ClearInitFlag, NULL, 0, NULL);
+		CloseHandle(hThread);
+		// 登记为已经修改 SCI_REPLACESEL SCI_DELETEBACK
 		//::MessageBox(nppData._nppHandle,TEXT("!!!!"),TEXT(""),MB_OK);
 	}
 	//::SendMessage(curScintilla, SCI_SETTEXT, 0, (LPARAM)"aaa" );
 	//::SendMessage(curScintilla, SCI_ENDUNDOACTION ,0,0);  
 	//::SendMessage(curScintilla, SCI_SETUNDOCOLLECTION, 0, 0 ); // 将导致无法保存
-	::SendMessage(curScintilla, SCI_EMPTYUNDOBUFFER, 0, 0 ); // 清除历史操作记录(文本替换记录)
-
 	//::SendMessage(curScintilla, SCI_GOTOPOS,pos, 0);
 	::SendMessage(nppData._nppHandle, NPPM_SETCURRENTLANGTYPE , 0, (LPARAM)toSetLangType);
 	// 如果文件不存在，当 langtype 为 JAVA 时，有默认内容
@@ -489,7 +497,7 @@ void SetConfig(){
 	dlgConfig.doDialog();
 };
 void AboutThis(){
-	::MessageBox(nppData._nppHandle,TEXT("You can use Ctrl+Shift+N or Ctrl+Shift+Alt+N to open a new file with default text which is defined yourself in template.\nIn template ^! means the default cursor position.\nIt has innner browser with IE kernel, use Ctrl+E to run current file in browser.\nCan auto show in browser when saved(HTML file)\nThe file's encode is defined by template\nCan define and name 20 templates for new files.\n\n Version: 0.1.4   Author: Austin Young<pattazl@gmail.com>"),TEXT("About"),MB_OK);
+	::MessageBox(nppData._nppHandle,TEXT("You can use Ctrl+Shift+N or Ctrl+Shift+Alt+N to open a new file with default text which is defined yourself in template.\nIn template ^! means the default cursor position.\nIt has innner browser with IE kernel, use Ctrl+E to run current file in browser.\nCan auto show in browser when saved(HTML file)\nThe file's encode is defined by template\nCan define and name 20 templates for new files.\n\n Version: 0.1.5   Author: Austin Young<pattazl@gmail.com>"),TEXT("About"),MB_OK);
 };
 
 void checkUpdate()
