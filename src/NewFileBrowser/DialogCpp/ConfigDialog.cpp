@@ -25,13 +25,20 @@ typedef wstring tstring;
 typedef string tstring;
 #endif
 tstring LangTypeStr[] = {TEXT("TXT"),TEXT("PHP"),TEXT("C"),TEXT("CPP"),TEXT("CS"),TEXT("OBJC"),TEXT("JAVA"),TEXT("RC"),TEXT("HTML"),TEXT("XML"),
-TEXT("MAKEFILE"),TEXT("PASCAL"),TEXT("BATCH"),TEXT("INI"),TEXT("NFO"),TEXT("USER"),TEXT("ASP"),TEXT("SQL"),TEXT("VB"),TEXT("JS"),TEXT("CSS"),
+TEXT("MAKEFILE"),TEXT("PASCAL"),TEXT("BATCH"),TEXT("INI"),TEXT("NFO"),TEXT("USER"),TEXT("ASP"),TEXT("SQL"),TEXT("VB"),TEXT("JS(obsolete)"),TEXT("CSS"),
 TEXT("PERL"),TEXT("PYTHON"),TEXT("LUA"),TEXT("TEX"),TEXT("FORTRAN"),TEXT("BASH"),TEXT("FLASH"),TEXT("NSIS"),TEXT("TCL"),TEXT("LISP"),
 TEXT("SCHEME"),TEXT("ASM"),TEXT("DIFF"),TEXT("PROPS"),TEXT("PS"),TEXT("RUBY"),TEXT("SMALLTALK"),TEXT("VHDL"),TEXT("KIX"),TEXT("AU3"),TEXT("CAML"),
 TEXT("ADA"),TEXT("VERILOG"),TEXT("MATLAB"),TEXT("HASKELL"),TEXT("INNO"),TEXT("SEARCHRESULT"),TEXT("CMAKE"),TEXT("YAML"),
-TEXT("COBOL"),TEXT("GUI4CLI"),TEXT("D"),TEXT("POWERSHELL"),TEXT("R"),TEXT("JSP"),TEXT("COFFEESCRIPT"),TEXT("JSON"),TEXT("JAVASCRIPT"),TEXT("FORTRAN_77")};
+TEXT("COBOL"),TEXT("GUI4CLI"),TEXT("D"),TEXT("POWERSHELL"),TEXT("R"),TEXT("JSP"),TEXT("COFFEESCRIPT"),TEXT("JSON"),TEXT("JAVASCRIPT"),TEXT("FORTRAN_77"),
+TEXT("BAANC"), TEXT("SREC"),
+TEXT("IHEX"), TEXT("TEHEX"), TEXT("SWIFT"),
+TEXT("ASN1"), TEXT("AVS"), TEXT("BLITZBASIC"), TEXT("PUREBASIC"), TEXT("FREEBASIC"), 
+TEXT("CSOUND"), TEXT("ERLANG"), TEXT("ESCRIPT"), TEXT("FORTH"), TEXT("LATEX"), 
+TEXT("MMIXAL"), TEXT("NIMROD"), TEXT("NNCRONTAB"), TEXT("OSCRIPT"), TEXT("REBOL"), 
+TEXT("REGISTRY"), TEXT("RUST"), TEXT("SPICE"), TEXT("TXT2TAGS"), TEXT("VISUALPROLOG")
+};
 
-TCHAR HTMLDefault[512] = TEXT("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n<html>\n <head>\n  <title> New Document </title>\n  <meta name=\"Generator\" content=\"NPP-Plugin\">\n  <meta name=\"Author\" content=\"\">\n  <meta name=\"Keywords\" content=\"\">\n  <meta name=\"Description\" content=\"\">\n </head>\n <body>\n  <script type=\"text/javascript\">\n    ^!\n  </script>\n </body>\n</html>");
+TCHAR HTMLDefault[512] = TEXT("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n<html>\n <head>\n  <title> New Document </title>\n  <meta name=\"Generator\" content=\"NPP-Plugin\">\n  <meta name=\"Author\" content=\"\">\n  <meta name=\"Keywords\" content=\"\">\n  <meta name=\"Description\" content=\"\">\n  <meta charset=\"utf-8\"/>\n </head>\n <body>\n  <script type=\"text/javascript\">\n    ^!\n  </script>\n </body>\n</html>");
 TCHAR JAVADefault[512] = TEXT("class ^! \n{\n	public static void main(String[] args) \n	{\n		System.out.println(\"Hello World!\");\n	}\n}\n");
 
 void ConfigDialog::doDialog()
@@ -78,7 +85,7 @@ void ConfigDialog::GetFileTypeByNo()
 	{
 		::SendMessage( _hListType, CB_RESETCONTENT, 0, 0 );
 		int NewFileIndex=-1;
-		for ( int i=0;i<L_EXTERNAL;i++ )
+		for ( int i=0;i< sizeof(LangTypeStr)/ sizeof(LangTypeStr[0]);i++ )  //  最大长度为 L_EXTERNAL ，需要修改对应的 LangTypeStr
 		{
 			tstring tmp = LangTypeStr[i];
 			TCHAR strHint[500]={0}; // 

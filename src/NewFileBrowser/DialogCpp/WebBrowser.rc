@@ -2,7 +2,12 @@
 //
 #include "resource.h"
 #include "winres.h"
+
 #define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
 
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
@@ -69,6 +74,12 @@ BEGIN
     "\r\0"
 END
 
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
 #endif    // APSTUDIO_INVOKED
 
 
@@ -99,8 +110,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,1,4,0
- PRODUCTVERSION 0,1,4,0
+ FILEVERSION 0,1,5,0
+ PRODUCTVERSION 0,1,5,0
  FILEFLAGSMASK 0x17L
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -117,12 +128,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Pattazl, Lark Stuio"
             VALUE "FileDescription", "Define New file's text and inner WebBrowser"
-            VALUE "FileVersion", "0.1.4.0"
+            VALUE "FileVersion", "0.1.5.0"
             VALUE "InternalName", "Newfile&WebBrowser"
             VALUE "LegalCopyright", "Copyleft (C) 2011-2021"
             VALUE "OriginalFilename", "Newfile&WebBrowser"
             VALUE "ProductName", "Newfile&WebBrowser"
-            VALUE "ProductVersion", "0.1.4.0"
+            VALUE "ProductVersion", "0.1.5.0"
         END
     END
     BLOCK "VarFileInfo"
