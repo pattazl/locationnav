@@ -63,6 +63,7 @@ struct MarkData
 	Sci_Position BufferID ;
 	int markHandle;
 	Sci_Position lineLen;
+	int markType;
 };
 const int nbFunc = menuCount;
 // 270*300
