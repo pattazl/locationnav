@@ -100,8 +100,8 @@ IDB_BITMAP4             BITMAP                  "cnext16.bmp"
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,4,7,9
- PRODUCTVERSION 0,4,7,9
+ FILEVERSION 0,4,8,0
+ PRODUCTVERSION 0,4,8,0
  FILEFLAGSMASK 0x17L
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -118,12 +118,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Pattazl, Lark Stuio"
             VALUE "FileDescription", "LocationNavigate for code/text view and edit"
-            VALUE "FileVersion", "0.4.7.9"
+            VALUE "FileVersion", "0.4.8.0"
             VALUE "InternalName", "LocationNavigate"
             VALUE "LegalCopyright", "Copyleft (C) 2011-2021"
             VALUE "OriginalFilename", "LocationNavigate"
             VALUE "ProductName", "LocationNavigate"
-            VALUE "ProductVersion", "0.4.7.9"
+            VALUE "ProductVersion", "0.4.8.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -163,6 +163,7 @@ END
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
+
 
 
 /////////////////////////////////////////////////////////////////////////////
