@@ -1,4 +1,7 @@
 NewFileBrowser is a plugin for Notepad++, and it can define 2 new file's text and have a inner webbrowser which could run current file
+v0.1.5
+add new file type and fixed sometimes crash on x64
+
 v0.1.4
 support x64
 
@@ -23,6 +26,15 @@ V0.1.0
 
 ------------------------------------------------------------------------
 LocationNavigate is a plugin for Notepad++ , and it is usefull for code/text edit and view, especially for many and large text files.
+V0.4.8.1
+fix the bug that marker will not work when keep undo
+
+V0.4.8.0
+improve the algorithm of marker ,make it work better 
+
+V0.4.7.9
+fix the bug that sometimes crash when save on x64
+
 V0.4.7.8
 support x64
 
